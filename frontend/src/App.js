@@ -1,13 +1,24 @@
-import React from "react";
-import GameBoard from "./components/GameBoard";
+import React, { useState, useEffect } from 'react';
+import GameBoard from './components/GameBoard';
+import Launcher from './components/Launcher';
+import Scoreboard from './components/ScoreBoard';
+import './assets/styles/index.css';
 
 function App() {
-    return (
-        <div style={{ textAlign: "center", padding: "20px" }}>
-            <h1>Pachinko Demayo</h1>
-            <GameBoard />
-        </div>
-    );
+  const [score, setScore] = useState(0);
+  const [balls, setBalls] = useState([]);
+
+  const launchBall = () => {
+    // We'll implement this later
+  };
+
+  return (
+    <div className="App">
+      <Scoreboard score={score} />
+      <GameBoard balls={balls} />
+      <Launcher onLaunch={launchBall} />
+    </div>
+  );
 }
 
 export default App;
